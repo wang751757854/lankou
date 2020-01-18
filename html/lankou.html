@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>法国兰蔻</title>
+    <link rel="stylesheet" href="../css/lankou.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.css">
+</head>
+<body>
+<!--导航栏-->
+<div id="head">
+    <div class="head01">
+        <p class="p1">❤专柜查询&emsp;&ensp;|&emsp;&ensp;客服中心</p>
+        <p class="p2"><img src="../img/logo@2x.png" alt=""></p>
+        <p class="p3">全部产品&emsp;&ensp;|&emsp;&ensp;
+            订阅电子杂志&emsp;&ensp;|&ensp;&emsp;登入/注册&emsp;&ensp;|&ensp;&emsp;</p>
+        <p class="p4">
+            购物袋
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+        </p>
+    </div>
+    <div class="head02">
+        <div>
+            <a class="li_s">首页</a>
+            <a href="../hufu/hufu.html" target="_blank" class="li_h">
+                护肤
+                <div>
+                    <img src="../img/hufu/01.bmp" alt="">
+                </div>
+            </a>
+            <a class="li_h">
+                彩妆
+                <div>
+                    <img src="../img/caizhuang/01.bmp" alt="">
+                </div>
+            </a>
+            <a class="li_h">
+                香水
+                <div>
+                    <img src="../img/xiangshui/01.bmp" alt="">
+                </div>
+            </a>
+            <a class="li_k">
+                小黑狂欢周
+                <div>
+                    <img src="../img/xiaojhei.jpg" alt="">
+                </div>
+            </a>
+            <a class="li_n">
+                新年礼盒
+                <div class="LiHe">
+                    <ul>
+                        <li>礼盒套装</li>
+                        <li>护肤礼盒</li>
+                        <li>彩妆礼盒</li>
+                        <li>香水礼盒</li>
+                    </ul>
+                    <div>
+                        <ul>
+                            <li class="li1_1">礼盒套装</li>
+                            <li>护肤礼盒</li>
+                            <li>彩妆礼盒</li>
+                            <li>香水礼盒</li>
+                        </ul>
+                        <div class="LiG">
+                            <img src="../img/lihe.jpg" alt="">
+                        </div>
+                        <div class="LiP">
+                            <p class="Lip1">小黑瓶买一赠一开运礼盒</p>
+                            <p class="Lip2">入门小红瓶 【肌】活整年美运</p>
+                            <p class="Lip2">了解详情></p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="li_k">高端护肤场</a>
+            <a class="li_n">
+                畅销榜单
+                <div class="BangD">
+                    <img src="../img/bangdan.jpg" alt="">
+                </div>
+            </a>
+            <a class="li_y">
+                官网购物理由
+                <div>
+                    <img src="../img/liyou.jpg" alt="">
+                </div>
+            </a>
+
+            <div class="li_x">
+                <input type="text"  placeholder="新年限量版">
+                <a><i class="fa fa-search" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--身体-->
+<div id="center">
+    <div class="banner">
+        <!--轮播图片-->
+        <ul class="slider-img">
+            <li class="show"><img src="../img/head01.jpg" alt=""></li>
+            <li><img src="../img/head02.jpg" alt=""></li>
+            <li><img src="../img/head04.jpg" alt=""></li>
+            <li><img src="../img/head03.jpg" alt=""></li>
+        </ul>
+        <!--轮播小圆点-->
+        <ul class="slider-btn">
+            <li class="on"><b>2019新年开运大礼</b></li>
+            <li ><b>甄选新年星品 享更多满箱赠礼</b></li>
+            <li ><b>为你搭配的新年第一份礼物</b></li>
+            <li><b>菁纯全系列 新年奢宠升级</b></li>
+        </ul>
+        <!--左右按钮-->
+        <a class="prev"  href="javascript:">&lt;</a><!--向左走-->
+        <a class="next"  href="javascript:">&gt;</a><!--向右走-->
+    </div>
+    <script>
+        var img=document.getElementsByClassName("slider-img")[0].getElementsByTagName("li");
+        console.log(img);
+        var btn=document.getElementsByClassName("slider-btn")[0].getElementsByTagName("li");
+        console.log(btn);
+        var prev=document.getElementsByClassName("prev")[0];
+        var next=document.getElementsByClassName("next")[0];
+        var number=0;
+        var timer = null;
+        function mover(num) {
+            for (var c=0;c<btn.length;c++){
+                img[c].className="";
+                btn[c].className="";
+            }
+            img[num].className="show";
+            btn[num].className="on";
+        }
+        for(var i=0;i<btn.length;i++){
+            myDot=btn[i];
+            myDot.index= i;
+            myDot.onclick=function () {
+                number=this.index;
+                mover(number);
+            }
+        }
+        next.onclick=function () {
+            number++;
+            if(number>=img.length){
+                number=0;
+            }
+            mover(number);
+        };
+        prev.onclick=function () {
+            number--;
+            if(number<0){
+                number=img.length-1;
+            }
+            mover(number);
+        };
+
+        timer = setInterval(function () {
+            number++;
+            if(number >= img.length){
+                number = 0;
+            }
+            mover(number)
+        },1800);
+
+        function moverOver(list){
+            for(var d=0;d<list.length;d++){
+                list[d].onmouseover = function () {
+                    clearInterval(timer);
+                };
+                list[d].onmouseout = function () {
+                    timer = setInterval(function () {
+                        number++;
+                        if(number >= img.length){
+                            number = 0;
+                        }
+                        mover(number)
+                    },1800);
+                }
+            }
+        }
+        moverOver([document.getElementsByClassName("slider-btn")[0],prev,next]);
+    </script>
+    <div class="banner02">
+        <ul class="banner02_1">
+            <li class="banner02_1_1">小黑家族买一赠一</li>
+            <li class="banner02_1_2">高端护肤</li>
+            <li class="banner02_1_2">口碑单品</li>
+        </ul>
+        <div class="banner02_2">
+            <div>
+                <img src="../img/Hei/01.jpg" alt="">
+                <div class="shade">
+                    <div class="shade01">立即购买</div>
+                    <div class="shade02">了解详情</div>
+                </div>
+            </div>
+            <div>
+                <img src="../img/Hei/02.jpg" alt="">
+                <div class="shade">
+                    <div class="shade01">立即购买</div>
+                    <div class="shade02">了解详情</div>
+                </div>
+            </div>
+            <div>
+                <img src="../img/Hei/03.jpg" alt="">
+                <div class="shade">
+                    <div class="shade01">立即购买</div>
+                    <div class="shade02">了解详情</div>
+                </div>
+            </div>
+            <div>
+                <img src="../img/Hei/04.jpg" alt="">
+                <div class="shade">
+                    <div class="shade01">立即购买</div>
+                    <div class="shade02">了解详情</div>
+                </div>
+            </div>
+        </div>
+        <div class="banner02_3">
+            <ul>
+                <li class="li01">礼盒</li>
+                <li class="li01">小黑瓶买一赠一开运礼盒</li>
+                <li class="li02">入门小黑瓶 【肌】活整年美运</li>
+                <li class="li03">★★★★★&emsp;&emsp;|&emsp;&emsp;￥760</li>
+            </ul>
+            <ul>
+                <li class="li01">礼盒</li>
+                <li class="li01">小黑瓶买一赠一开运礼盒</li>
+                <li class="li02">入门小黑瓶 【肌】活整年美运</li>
+                <li class="li03">★★★★★&emsp;&emsp;|&emsp;&emsp;￥760</li>
+            </ul>
+            <ul>
+                <li class="li01">礼盒</li>
+                <li class="li01">小黑瓶买一赠一开运礼盒</li>
+                <li class="li02">入门小黑瓶 【肌】活整年美运</li>
+                <li class="li03">★★★★★&emsp;&emsp;|&emsp;&emsp;￥760</li>
+            </ul>
+            <ul>
+                <li class="li01">礼盒</li>
+                <li class="li01">小黑瓶买一赠一开运礼盒</li>
+                <li class="li02">入门小黑瓶 【肌】活整年美运</li>
+                <li class="li03">★★★★★&emsp;&emsp;|&emsp;&emsp;￥760</li>
+            </ul>
+
+        </div>
+    </div>
+    <img src="../img/bottom.jpg" alt="">
+    <div class="banner03">
+        <div class="banner03_1">
+            <p class="banner03_1_1">官网特别服务</p>
+            <p class="banner03_1_2">SPECIAL SERVICES</p>
+        </div>
+        <div class="banner03_2">
+            <div>
+                <div class="box result04">
+                    <img src="../img/01.jpg" alt="">
+                    <div class="fragment">
+                        <p><img src="../img/logo@2x.png" alt=""></p>
+                        <h2>法国兰蔻</h2>
+                    </div>
+                </div>
+                <p class="b03_1">全场满增活动</p>
+                <p class="b03_2">享新年更多礼遇</p>
+                <div class="b03_3">立即购买</div>
+            </div>
+            <div>
+                <div class="box result04">
+                    <img src="../img/02.jpg" alt="">
+                    <div class="fragment">
+                        <p><img src="../img/logo@2x.png" alt=""></p>
+                        <h2>法国兰蔻</h2>
+                    </div>
+                </div>
+                <p class="b03_1">全场满增活动</p>
+                <p class="b03_2">享新年更多礼遇</p>
+                <div class="b03_3">立即购买</div>
+            </div>
+            <div>
+                <div class="box result04">
+                    <img src="../img/03.jpg" alt="">
+                    <div class="fragment">
+                        <p><img src="../img/logo@2x.png" alt=""></p>
+                        <h2>法国兰蔻</h2>
+                    </div>
+                </div>
+                <p class="b03_1">全场满增活动</p>
+                <p class="b03_2">享新年更多礼遇</p>
+                <div class="b03_3">立即购买</div>
+            </div>
+        </div>
+    </div>
+    <img src="../img/head03.jpg" alt="">
+    <div class="banner04">
+        <div class="b04">
+            <p class="b04_1">我在寻找...</p>
+            <div class="b04_2">
+                <input type="text"  placeholder="搜索">
+                <a><i class="fa fa-search" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--结尾-->
+<div id="end">
+    <ul>
+        <li class="li_p2"> © L’Oreal China 欧莱雅（中国）有限公司版权所有</li>
+        <li class="li_png"></li>
+        <li>中国工商 沪ICP备08100043号-34</li>
+        <li class="li_png2"></li>
+        <li> 沪公网安备 31010602001526号</li>
+    </ul>
+    <p>使用条款&emsp;|&emsp;Cookies政策&emsp;|&emsp;隐私政策</p>
+    <p>浏览该网站表示您接受并同意我们使 用cookies为您提供个性化的浏览体验。点击Cookies政策了解详情</p>
+</div>
+
+</body>
+</html>
